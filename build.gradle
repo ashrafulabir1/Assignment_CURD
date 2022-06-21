@@ -57,6 +57,7 @@ dependencies {
     implementation "org.hibernate:hibernate-core:5.6.5.Final"
     implementation "org.grails.plugins:events"
     implementation "org.grails.plugins:gsp"
+    implementation 'org.grails.plugins:spring-security-core:4.0.0'
     profile "org.grails.profiles:web"
     runtimeOnly "org.glassfish.web:el-impl:2.2.1-b05"
     runtimeOnly "com.h2database:h2"
@@ -74,6 +75,8 @@ dependencies {
     testRuntimeOnly "org.seleniumhq.selenium:selenium-chrome-driver:4.0.0"
     testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:4.0.0"
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+
+
 }
 
 bootRun {
