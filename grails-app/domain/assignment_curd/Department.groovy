@@ -6,6 +6,7 @@ class Department {
      String courses
      static  hasMany = [students: Student]
 
+
      static constraints = {
         name size: 1..40
         courses size: 1..30
