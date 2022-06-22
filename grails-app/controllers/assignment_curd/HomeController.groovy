@@ -2,7 +2,7 @@ package assignment_curd
 
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['permitAll'])
+@Secured(['ROLE_USER'])
 class HomeController {
 
     def index() { }

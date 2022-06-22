@@ -9,10 +9,10 @@ class BootStrap {
 
     def init = { servletContext ->
 
-      def adminRole = Role.findOrSaveWhere(authority: 'ROLE_ADMIN')
-      def user = User.findOrSaveWhere(username: 'abirhaque2@mail.com', password: 'abir')
+    //  def adminRole = Role.findOrSaveWhere(authority: 'ROLE_ADMIN')
+     // def user = User.findOrSaveWhere(username: 'abirhaque6@mail.com', password: 'abir')
 
-      userService.createUserRole(user, adminRole)
+      //userService.createUserRole(user, adminRole)
     }
     def destroy = {
     }
