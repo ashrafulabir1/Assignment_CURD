@@ -2,25 +2,53 @@ package assignment_curd
 
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
+import grails.web.servlet.mvc.GrailsParameterMap
+
 import static org.springframework.http.HttpStatus.*
 
 @Secured(['ROLE_USER'])
 class StudentController {
 
-        StudentService studentService
+    StudentService studentService
 
-        static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-        def index(Integer max) {
-            params.max = Math.min(max ?: 10, 100)
-            respond studentService.list(params), model:[studentCount: studentService.count()]
-        }
+//    def index(Integer max) {
+//            params.max = Math.min(max ?: 10, 100)
+//            respond studentService.list(params), model:[studentCount: studentService.count()]
+//    }
 
-        def show(Long id) {
+    def index() {
+        def response = list(params)
+        [studentList: response.list, total:response.count]
+    }
+
+
+    def show(Long id) {
             respond studentService.get(id)
-        }
+    }
 
-        def create() {
+
+    def getById(Serializable id) {
+        return Student.get(id)
+    }
+
+    def list(GrailsParameterMap params) {
+        params.max = params.max ?: GlobalConfig.itemsPerPage()
+        List<Student> studentList = Student.createCriteria().list(params) {
+            if (params?.colName && params?.colValue) {
+                like(params.colName, "%" + params.colValue + "%")
+            }
+            if (!params.sort) {
+                order("id", "desc")
+            }
+        }
+        return [list: studentList, count: Student.count()]
+    }
+
+
+
+    def create() {
             respond new Student(params)
         }
 
