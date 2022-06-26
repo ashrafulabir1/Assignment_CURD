@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: LOCAL ADMIN
-  Date: 6/19/2022
-  Time: 2:38 PM
---%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +19,8 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
+    <f:display bean="department" except="logo" />
+
     <g:form resource="${this.department}" method="DELETE">
         <fieldset class="buttons">
             <g:link class="edit" action="edit" resource="${this.department}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

@@ -12,25 +12,34 @@
 
         <article class="common-view no-background center-form">
             <h1 align="center">Reset Password</h1>
-            <g:form controller="user" action="resetPassword" parsley-validate="true" class="reset-pwd-form custom-form">
-                <g:hiddenfield name="token" value="${token.value}">
-                    <span class="inputwrapper password-icon" style="padding-bottom:10px">
-                        <g:passwordfield name="password" id="password" placeholder="Password" class="no-space" parsley-required="true" parsley-error-message="Please enter password.">
-                        </g:passwordfield></span>
+            <g:form controller="password" action="resetPassword" parsley-validate="true" class="reset-pwd-form custom-form">
+
+                <g:textField name="email" id="email" placeholder="Enter your email" class="no-space" parsley-type="email" parsley-required="true" parsley-error-message="Please enter your email."></g:textField>
+            %{--                <span class="inputwrapper email-icon" style="padding-bottom:10px">--}%
+            %{--                    --}%
+            %{--                    <g:textfield name="email" >--}%
+            %{--                    </g:textfield>--}%
+            %{--                </span>--}%
 
 
-                    <span class="inputwrapper password-icon" style="padding-bottom:10px">
-                        <g:passwordfield name="password2" placeholder="Re-enter Password" class="no-space" parsley-equalto="#password" parsley-required="true" parsley-error-message="Please Re-enter password.">
-                        </g:passwordfield></span>
+
+                <g:textField name="email" id="email" placeholder="Enter your email" class="no-space" parsley-type="email" parsley-required="true" parsley-error-message="Please enter your email."></g:textField>
+            %{--                <span class="inputwrapper email-icon" style="padding-bottom:10px">--}%
+            %{--                    --}%
+            %{--                    <g:textfield name="email" >--}%
+            %{--                    </g:textfield>--}%
+            %{--                </span>--}%
 
 
-                    <button type="submit" id="reset-pwd-btn" style="display: none;">Submit</button>
+
+                <button type="submit" id="reset-pwd-btn" style="display: none;">Submit</button>
                     <a href="javascript:void(0)" class="innerbtn" onclick="document.getElementById('reset-pwd-btn').click();" id="reset-btn">Submit</a>
-                </g:hiddenfield></g:form>
+
+            </g:form>
         </article>
     </section>
-    <g:render template="/web/footer">
-    </g:render></div>
+
+    </div>
 <script type="text/javascript">
     jQuery('#reset-btn').live('click',function(){
         var isValid = $('.reset-pwd-form').parsley('validate');

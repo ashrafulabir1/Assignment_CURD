@@ -51,6 +51,7 @@ dependencies {
     implementation "org.grails:grails-plugin-url-mappings"
     implementation "org.grails:grails-plugin-interceptors"
     implementation "org.grails.plugins:cache"
+    implementation "org.grails.plugins:mail:3.0.0"
     implementation "org.grails.plugins:async"
     implementation "org.grails.plugins:scaffolding"
     implementation "org.grails.plugins:hibernate5"
@@ -75,6 +76,7 @@ dependencies {
     testRuntimeOnly "org.seleniumhq.selenium:selenium-chrome-driver:4.0.0"
     testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:4.0.0"
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+
 
 
 }

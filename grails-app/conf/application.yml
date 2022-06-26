@@ -46,6 +46,14 @@ environments:
 
 ---
 grails:
+    mail:
+        host: "smtp.live.com"
+        port: 587
+        username: "ashrafulabir.nsu@hotmail.com"
+        password: ""
+        props:
+            mail.smtp.starttls.enable: "true"
+            mail.smtp.port: "587"
     mime:
         disable:
             accept:

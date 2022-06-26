@@ -12,18 +12,34 @@
 
         <article class="common-view no-background center-form">
             <h1 align="center">Change Password</h1>
-            <g:form controller="account" action="editPassword" parsley-validate="true" class="reset-pwd-form custom-form">
-                <span class="inputwrapper password-icon" style="padding-bottom:10px">
-                    <g:passwordfield name="currentPassword" placeholder="Current password" class="no-space" parsley-required="true" parsley-error-message="Please enter current password.">
-                    </g:passwordfield></span>
+            <g:form controller="password" action="editPassword" parsley-validate="true" class="reset-pwd-form custom-form">
+
+                <g:textField name="email" id="email" placeholder="Enter your email" class="no-space" parsley-type="email" parsley-required="true" parsley-error-message="Please enter your email."></g:textField>
+            %{--                <span class="inputwrapper email-icon" style="padding-bottom:10px">--}%
+            %{--                    --}%
+            %{--                    <g:textfield name="email" >--}%
+            %{--                    </g:textfield>--}%
+            %{--                </span>--}%
+
+
+                <g:textField name="email" id="email" placeholder="Enter your email" class="no-space" parsley-type="email" parsley-required="true" parsley-error-message="Please enter your email."></g:textField>
+            %{--                <span class="inputwrapper email-icon" style="padding-bottom:10px">--}%
+            %{--                    --}%
+            %{--                    <g:textfield name="email" >--}%
+            %{--                    </g:textfield>--}%
+            %{--                </span>--}%
+
 
                 <span class="inputwrapper password-icon" style="padding-bottom:10px">
-                    <g:passwordfield name="password" placeholder="New password" class="no-space" id="password" parsley-required="true" parsley-error-message="Please enter new password.">
-                    </g:passwordfield></span>
+                    <g:passwordField name="email" id="email" placeholder="Enter your email" class="no-space" parsley-type="email" parsley-required="true" parsley-error-message="Please enter your email."></g:passwordField>
+                    %{--                <span class="inputwrapper email-icon" style="padding-bottom:10px">--}%
+                    %{--                    --}%
+                    %{--                    <g:textfield name="email" >--}%
+                    %{--                    </g:textfield>--}%
+                    %{--                </span>--}%
 
-                <span class="inputwrapper password-icon" style="padding-bottom:10px">
-                    <g:passwordfield name="password2" placeholder="Re-enter new password" class="no-space" parsley-equalto="#password" parsley-required="true" parsley-error-message="Please Re-enter new password.">
-                    </g:passwordfield></span>
+
+                </span>
 
 
                 <button type="submit" id="reset-pwd-btn" style="display: none;">Submit</button>

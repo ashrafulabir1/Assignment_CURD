@@ -12,13 +12,16 @@
         <article class="common-view no-background center-form">
             <h1 align="center">Reset Password</h1>
 
-            <h4><g:message code="spring.security.forgotPassword.description"></g:message></h4>
-            <g:form controller="user" action="forgotPassword" parsley-validate="true" class="forgot-pwd-form custom-form">
+
+            <g:form controller="password" action="forgotPassword" parsley-validate="true" class="forgot-pwd-form custom-form">
 
 
-                <span class="inputwrapper email-icon" style="padding-bottom:10px">
-                    <g:textfield name="email" id="email" placeholder="Enter your email" class="no-space" parsley-type="email" parsley-required="true" parsley-error-message="Please enter your email.">
-                    </g:textfield></span>
+                <g:textField name="email" id="email" placeholder="Enter your email" class="no-space" parsley-type="email" parsley-required="true" parsley-error-message="Please enter your email."></g:textField>
+%{--                <span class="inputwrapper email-icon" style="padding-bottom:10px">--}%
+%{--                    --}%
+%{--                    <g:textfield name="email" >--}%
+%{--                    </g:textfield>--}%
+%{--                </span>--}%
 
 
                 <button type="submit" id="forgot-pwd-btn" style="display: none;">Submit</button>

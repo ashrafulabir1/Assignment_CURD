@@ -23,7 +23,7 @@ class RegisterController {
 
             //userService.createUserRole(user, userole)
 
-            if(saveStatus.isSuccess) {
+            if (saveStatus.isSuccess) {
                 redirect(controller: 'login', action: 'auth')
             } else {
                 redirect(controller: 'register', action: 'index')
