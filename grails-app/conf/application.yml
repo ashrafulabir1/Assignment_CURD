@@ -47,13 +47,15 @@ environments:
 ---
 grails:
     mail:
-        host: "smtp.live.com"
-        port: 587
-        username: "ashrafulabir.nsu@hotmail.com"
-        password: ""
+        host: "smtp.gmail.com"
+        port: 465
+        username: "grailsappdemo@gmail.com"
+        password: "zzqkecfbrkmregij"
         props:
-            mail.smtp.starttls.enable: "true"
-            mail.smtp.port: "587"
+            mail.smtp.auth: "true"
+            mail.smtp.socketFactory.port: "465"
+            mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
+            mail.smtp.socketFactory.fallback: "false"
     mime:
         disable:
             accept:

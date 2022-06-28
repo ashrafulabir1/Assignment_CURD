@@ -1,7 +1,7 @@
 package assignment_curd
 
 import com.bitmascot.security.Role
-import com.bitmascot.security.Token
+
 import com.bitmascot.security.User
 import com.bitmascot.security.UserRole
 import grails.gorm.transactions.Transactional
@@ -80,15 +80,4 @@ class UserService {
             UserRole.create(user, adminRole, true)
         }
     }
-    def emailService;
-
-    void sendResetPasswordEmail(User user){
-        def token = Token.findByEmail(user.email)
-        if(!token) {
-            token = new Token(email: user.email)
-            token.save(flush: true);
-        }
-        emailService.sendResetPasswordEmail(user, token)
-    }
-
 }
