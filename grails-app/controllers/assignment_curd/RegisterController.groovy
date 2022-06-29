@@ -24,11 +24,13 @@ class RegisterController {
             //userService.createUserRole(user, userole)
 
             if (saveStatus.isSuccess) {
+                flash.message = "You have registered successfully. Please login."
                 redirect(controller: 'login', action: 'auth')
             } else {
                 redirect(controller: 'register', action: 'index')
             }
         } catch (ValidationException e) {
+            flash.message = "Registration failed."
             redirect(controller: 'register', action: 'index')
         }
     }

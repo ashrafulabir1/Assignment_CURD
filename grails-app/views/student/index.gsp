@@ -20,7 +20,7 @@
     <div class="btn-group">
         <g:form controller="student" action="index" method="GET">
             <div class="input-group" id="search-area">
-                <g:select name="colName" class="form-control" from="[name: 'Name', age: 'Age', address: 'Address']" value="${params?.colName}" optionKey="key" optionValue="value"/>
+                <g:select name="colName" class="form-control" from="[name: 'Name', address: 'Address']" value="${params?.colName}" optionKey="key" optionValue="value"/>
                 <g:textField name="colValue" class="form-control" value="${params?.colValue}"/>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">Search</button>

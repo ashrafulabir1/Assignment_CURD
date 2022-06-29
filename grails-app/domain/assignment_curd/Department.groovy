@@ -2,14 +2,12 @@ package assignment_curd
 
 class Department {
 
+    static  hasMany = [students: Student, courses: Courses]
      String name
-     String courses
-     static  hasMany = [students: Student]
-
 
      static constraints = {
         name size: 1..40
-        courses size: 1..30
+
     }
 
     String toString() {

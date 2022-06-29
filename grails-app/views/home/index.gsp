@@ -61,7 +61,7 @@
                 <h2>Available Features:</h2>
                 <ul>
                     <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName }}">
-                        <g:if test="${c.fullName == 'assignment_curd.DepartmentController' || c.fullName == 'assignment_curd.StudentController'}">
+                        <g:if test="${c.fullName == 'assignment_curd.DepartmentController' || c.fullName == 'assignment_curd.StudentController' || c.fullName == 'assignment_curd.CoursesController'}">
                             <li>Database: <strong>${c.name}</strong></li>
                                 <g:link controller="${c.logicalPropertyName}">${c.name}</g:link>
                             </li>

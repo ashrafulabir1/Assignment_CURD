@@ -2,6 +2,8 @@ package assignment_curd
 
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
+import grails.web.servlet.mvc.GrailsParameterMap
+
 import static org.springframework.http.HttpStatus.*
 
 @Secured(['ROLE_USER'])
@@ -11,16 +13,16 @@ class DepartmentController {
 
         static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-        def index(Integer max) {
-            params.max = Math.min(max ?: 10, 100)
-            respond departmentService.list(params), model: [departmentCount: departmentService.count()]
-        }
+    def index() {
+        def response = list(params)
+        [departmentList: response.list, total:response.count]
+    }
 
         def show(Long id) {
             respond departmentService.get(id)
         }
 
-        def create() {
+    def create() {
             respond new Department(params)
         }
 
@@ -45,6 +47,23 @@ class DepartmentController {
                 '*' { respond department, [status: CREATED] }
             }
         }
+
+    def getById(Serializable id) {
+        return Department.get(id)
+    }
+
+    def list(GrailsParameterMap params) {
+        params.max = params.max ?: GlobalConfig.itemsPerPage()
+        List<Department> departmentList = Department.createCriteria().list(params) {
+            if (params?.colName && params?.colValue) {
+                like(params.colName, "%" + params.colValue + "%")
+            }
+            if (!params.sort) {
+                order("id", "desc")
+            }
+        }
+        return [list: departmentList, count: Department.count()]
+    }
 
         def edit(Long id) {
             respond departmentService.get(id)
